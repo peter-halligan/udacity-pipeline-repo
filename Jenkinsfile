@@ -17,7 +17,7 @@ pipeline {
          }
          stage('Security Scan') {
               steps { 
-                 sh 'Disable Security scan'
+                 sh 'echo Disable Security scan'
               }
          }         
          stage('Upload to AWS') {
