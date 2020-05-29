@@ -12,12 +12,14 @@ pipeline {
          }
          stage('Lint HTML') {
               steps {
-                  sh 'tidy -q -e *.html'
+                  //sh 'tidy -q -e *.html'
+                  sh 'Disable tidy'
               }
          }
          stage('Security Scan') {
               steps { 
                  aquaMicroscanner imageName: 'alpine:latest', notCompleted: 'exit 1', onDisallowed: 'fail'
+                 sh 'Disable Security scan'
               }
          }         
          stage('Upload to AWS') {
